@@ -9,13 +9,6 @@ namespace FilteringTask
 
         public  void OnActionExecuting(ActionExecutingContext context)
         {
-            
-         
-        }
-
-
-        public void OnActionExecuted(ActionExecutedContext context)
-        {
             string ActionName = context.RouteData.Values["action"].ToString();
             context.HttpContext.Response.Headers.Add("Action", ActionName);
 
@@ -40,6 +33,13 @@ namespace FilteringTask
 
             string ServerDateAndTime = DateTime.Now.ToString();
             context.HttpContext.Response.Headers.Add("ServerDateAndTime", ServerDateAndTime);
+
+        }
+
+
+        public void OnActionExecuted(ActionExecutedContext context)
+        {
+           
         }
     }
 }
